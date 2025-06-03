@@ -14,10 +14,13 @@ class BrandFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function run(): array
     {
-        return [
-            //
-        ];
+        $brands = ['Toyota','Honda', 'Ford', 'Chevrolet', 'Nissan'];
+
+        foreach ($brands as $brandName) {
+            Brand::factory ()->create([
+                'name' => $brandName]);
+        }
     }
 }
