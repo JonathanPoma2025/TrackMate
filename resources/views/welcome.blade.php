@@ -273,4 +273,8 @@
     </body>
 </html>
 
-<button></button>
+
+    <x-welcome/>
+
+   
+
