@@ -14,10 +14,14 @@ class CarTypeFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function run()
     {
-        return [
-            //
-        ];
+        $types = ['Sedan', 'Pickup', 'Convetible', 'Coupe', 'Camioneta'];
+
+        foreach ($types as $typeName) {
+            CarType:: factory()->create ([
+                'name' => $typeName
+            ]);
+        }
     }
 }
