@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 #[Layout('components.layouts.auth')]
 class Register extends Component
@@ -29,10 +30,15 @@ class Register extends Component
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'birthday' => ['required', 'date'],
+            'cellphone_number' => ['required'],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $validated['pin'] = Str::random(4);
         $validated['password'] = Hash::make($validated['password']);
+
+    
 
         event(new Registered(($user = User::create($validated))));
 
