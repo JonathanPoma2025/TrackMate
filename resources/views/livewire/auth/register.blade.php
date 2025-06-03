@@ -26,6 +26,26 @@
             placeholder="email@example.com"
         />
 
+        <!--Birthday -->
+         <flux:input
+            wire:model="birthday"
+            :label="__('Fecha de nacimiento')"
+            type="date"
+            required
+            autocomplete="birthday"
+            placeholder="email@example.com"
+        />
+
+         <!--Cellphone number -->
+         <flux:input
+            wire:model="cellphone_number"
+            :label="__('Número de celular')"
+            type="text"
+            required
+            autocomplete="cellphone_number"
+            placeholder="+503 #### ####"
+        />
+
         <!-- Password -->
         <flux:input
             wire:model="password"
